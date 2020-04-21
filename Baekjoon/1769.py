@@ -1,18 +1,10 @@
 # 1769 3의 배수
 if __name__ == "__main__":
-    N = int(input())
-    temp = str(N)
+    N = list(map(int, input()))
     count = 0
-    while int(temp) >= 10:
+    while len(N) > 1:
+        tmp = sum(N)
         count += 1
-        tSum = 0
-        for item in temp:
-            tSum += int(item)
-        if tSum % 3 == 0 or tSum < 10:
-            break
-        temp = str(tSum)
+        N = list(map(int, str(tmp)))
     print(count)
-    if int(temp) % 3 == 0:
-        print("YES")
-    else:
-        print("NO")
+    print('YES' if N[-1] % 3 == 0 else 'NO')
